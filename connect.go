@@ -1,6 +1,6 @@
 package instruments
 
 // Connect TODO
-func Connect() {
-
+func Connect() error {
+	return nil
 }
