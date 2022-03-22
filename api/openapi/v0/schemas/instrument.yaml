@@ -1,0 +1,12 @@
+# instrument.yaml
+type: object
+required:
+- instrumentType
+properties:
+  id:
+    $ref: './id.yaml'
+  instrumentType:
+    $ref: './instrumentType.yaml'
+  commandTypes:
+    $ref: ''
+    

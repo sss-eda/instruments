@@ -1,0 +1,13 @@
+get:
+  description: Returns all instruments the user has access to.
+  summary: List instruments
+  operationId: listInstruments
+  responses:
+post:
+  description: Creates a new instrument.
+put:
+  description: Updates an instrument.
+patch:
+  description: Partially updates and instrument.
+parameters:
+- name: 

@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Instruments API
+  summary: For managing, controlling and monitoring instruments.
+  description: This API gives clients access to an instruments resource, with the ability to send commands, subscribe to events and perform queries.
+  termsOfService: https://sansa.dev/terms
+  contact:
+    name: API Support
+    url: https://sansa.dev/support
+    email: support@sansa.dev
+  license:
+    name: MIT License
+    identifier: MIT
+  version: v0.0.0
+#jsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base
+servers:
+  - url: "https://api.sansa.dev/{version}"
+    description: "Production API Server"
+    variables:
+      version:
+        description: "Major Version of API"
+        enum:
+          - v0
+          - v1
+        default: v1
+paths:
+  /instruments:
+    $ref: ./paths/instruments.yaml
+  /instruments/{id}:
+    $ref: ./paths/instrument.yaml
+  /instruments/{id}/commands:
+    $ref: ./paths/commands.yaml
+  /instruments/{id}/commands/{id}:
+    $ref: ./paths/command.yaml
+  /instruments/{id}/events:
+    $ref: ./paths/events.yaml
+  /instruments/{id}/events/{id}:
+    $ref: ./paths/event.yaml
+components:
+  schemas:
+    Instrument:
+      $ref: ./schemas/instrument.yaml
+    Error:
+      $ref: ./schemas/error.yaml
+    Command:
+      $ref: ./schemas/command.yaml
+    Event:
+      $ref: ./schemas/event.yaml
+  responses:
+    NotFound:
+      description: Entity not found.
+    IllegalInput:
+      description: Illegal input for operation.
+    GeneralError:
+      description: General Error
+      content:
+        application/json:
+          schema:
+            $ref: ./schemas/errors.yaml#GeneralError
+  parameters:
+    first:
+      $ref: ./parameters/first.yaml
+    after:
+      $ref: ./parameters/after.yaml
+    last:
+      $ref: ./parameters/last.yaml
+    before:
+      $ref: ./parameters/before.yaml
+  #examples:
+  #requestBodies:
+  #headers:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
+    auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://api.sansa.dev/oauth
+          scopes:
+            write:instruments: modify instruments in your account
+            read:instruments: view instruments in your account
+  links:
+  callbacks:
+  pathItems:
+security:
+tags:
+externalDocs:

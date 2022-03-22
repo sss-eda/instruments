@@ -1,0 +1,7 @@
+# parameters/before.yaml
+name: after
+in: query
+description: cursor of first item from previous page
+required: false
+schema:
+  $ref: ../schemas/cursor.yaml

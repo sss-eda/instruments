@@ -1,0 +1,8 @@
+first:
+  $ref: ./first.yaml
+after:
+  $ref: ./after.yaml
+last:
+  $ref: ./last.yaml
+before:
+  $ref: ./before.yaml

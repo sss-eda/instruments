@@ -1,0 +1,8 @@
+# parameters/after.yaml
+name: after
+in: query
+description: cursor of last item from previous page
+required: false
+schema:
+  type: integer
+  format: int32
