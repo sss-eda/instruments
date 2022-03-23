@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.0.3
 info:
   title: Instruments API
-  summary: For managing, controlling and monitoring instruments.
+  #summary: For managing, controlling and monitoring instruments.
   description: This API gives clients access to an instruments resource, with the ability to send commands, subscribe to events and perform queries.
   termsOfService: https://sansa.dev/terms
   contact:
@@ -10,7 +10,7 @@ info:
     email: support@sansa.dev
   license:
     name: MIT License
-    identifier: MIT
+    #identifier: MIT
   version: v0.0.0
 #jsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base
 servers:
@@ -38,53 +38,22 @@ paths:
     $ref: ./paths/event.yaml
 components:
   schemas:
-    Instrument:
-      $ref: ./schemas/instrument.yaml
-    Error:
-      $ref: ./schemas/error.yaml
-    Command:
-      $ref: ./schemas/command.yaml
-    Event:
-      $ref: ./schemas/event.yaml
+    $ref: ./components/schemas.yaml
   responses:
-    NotFound:
-      description: Entity not found.
-    IllegalInput:
-      description: Illegal input for operation.
-    GeneralError:
-      description: General Error
-      content:
-        application/json:
-          schema:
-            $ref: ./schemas/errors.yaml#GeneralError
-  parameters:
-    first:
-      $ref: ./parameters/first.yaml
-    after:
-      $ref: ./parameters/after.yaml
-    last:
-      $ref: ./parameters/last.yaml
-    before:
-      $ref: ./parameters/before.yaml
-  #examples:
-  #requestBodies:
-  #headers:
-  securitySchemes:
-    api_key:
-      type: apiKey
-      name: api_key
-      in: header
-    auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://api.sansa.dev/oauth
-          scopes:
-            write:instruments: modify instruments in your account
-            read:instruments: view instruments in your account
-  links:
-  callbacks:
-  pathItems:
-security:
-tags:
-externalDocs:
+    $ref: ./components/responses.yaml
+  # parameters:
+  #   $ref: ./components/parameters.yaml
+  # examples:
+  #   $ref: ./components/examples.yaml
+  # requestBodies:
+  #   $ref: ./components/requestBodies.yaml
+  # headers:
+  #   $ref: ./components/headers.yaml
+  # securitySchemes:
+  #   $ref: ./components/securitySchemes.yaml
+  #links:
+  #callbacks:
+  #pathItems:
+#security:
+#tags:
+#externalDocs:

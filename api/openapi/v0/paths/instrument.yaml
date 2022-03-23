@@ -1,33 +1,34 @@
 #paths/instrument.yaml
 get:
   description: Returns the instrument details.
-  requestBody:
-    description: 
-    content:
-    #required: false
-  parameters:
-  responses:
+  # requestBody:
+  #   description: 
+  #   content:
+  #   #required: false
+  # parameters:
+  # responses:
 put:
   description: Updates the instrument.
-  requestBody:
-    description: New version of instrument
-    content:
-      application/json:
-        schema:
-          $ref: ./schemas/instrument.yaml
-      #application/xml:
-      #application/x-www-form-urlencoded:
-        example:
-          summary: Update instrument
-          value:
-            id: 1
-            instrumentType: LEMI025
-            commandTypes:
-            - 
+  # requestBody:
+  #   description: New version of instrument
+  #   content:
+  #     application/json:
+  #       schema:
+  #         $ref: ../components/schemas/instrument.yaml
+  #     #application/xml:
+  #     #application/x-www-form-urlencoded:
+  #       example:
+  #         summary: Update instrument
+  #         value:
+  #           id: 1
+  #           instrumentType: LEMI025
+  #           commandTypes:
+  #           - a
+  #           - b
         #examples:
-        encoding:
+        #encoding:
     #required: false
-  parameters:
-  responses:
+  #parameters:
+  #responses:
 patch:
   description: Partially updates the instrument.

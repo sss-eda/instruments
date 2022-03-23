@@ -3,6 +3,3 @@ name: last
 in: query
 description: number of items to return
 required: false
-schema:
-  type: integer
-  format: int32

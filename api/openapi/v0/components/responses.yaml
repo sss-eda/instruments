@@ -1,0 +1,8 @@
+NotFound:
+  description: Entity not found.
+IllegalInput:
+  description: Illegal input for operation.
+GeneralError:
+  description: General Error
+  content:
+    application/json:
