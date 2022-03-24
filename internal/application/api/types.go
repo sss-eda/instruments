@@ -1,49 +1,53 @@
-package instruments
+package api
 
-import (
-	"fmt"
-)
+import "fmt"
 
-// ClientType TODo
-type ClientType int
+// Type TODO
+type Type int
 
 const (
 	// OpenAPI TODO
-	OpenAPI ClientType = iota
+	OpenAPI Type = iota
 	// GraphQL TODO
 	GraphQL
 	// GRPC TODO
 	GRPC
+	// NATS TODO
+	NATS
 )
 
 // MarshalText TODO
-func (clientType *ClientType) MarshalText() (text []byte, err error) {
-	switch *clientType {
+func (t *Type) MarshalText() (text []byte, err error) {
+	switch *t {
 	case OpenAPI:
 		text = []byte("OpenAPI")
 	case GraphQL:
 		text = []byte("GraphQL")
 	case GRPC:
 		text = []byte("GRPC")
+	case NATS:
+		text = []byte("NATS")
 	default:
 		text = []byte("Undefined")
-		err = fmt.Errorf("could not marshal ClientType=%d to text", clientType)
+		err = fmt.Errorf("could not marshal ClientType=%d to text", t)
 	}
 
 	return
 }
 
 // UnmarshalText TODO
-func (clientType *ClientType) UnmarshalText(text []byte) (err error) {
+func (t *Type) UnmarshalText(text []byte) (err error) {
 	switch string(text) {
 	case "OpenAPI":
-		*clientType = OpenAPI
+		*t = OpenAPI
 	case "GraphQL":
-		*clientType = GraphQL
+		*t = GraphQL
 	case "GRPC":
-		*clientType = GRPC
+		*t = GRPC
+	case "NATS":
+		*t = NATS
 	default:
-		*clientType = -1
+		*t = -1
 		err = fmt.Errorf("could not unmarshal ClientType from text=\"%q\"", string(text))
 	}
 
@@ -51,8 +55,8 @@ func (clientType *ClientType) UnmarshalText(text []byte) (err error) {
 }
 
 // String TODO
-func (clientType ClientType) String() string {
-	textBytes, err := clientType.MarshalText()
+func (t Type) String() string {
+	textBytes, err := t.MarshalText()
 	text := string(textBytes)
 	if err != nil {
 		return fmt.Sprintf("%q: %q", text, err.Error())

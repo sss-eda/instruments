@@ -5,7 +5,7 @@ func (client *Client) ListInstruments(
 	first int,
 	after string,
 ) ([]*Instrument, error) {
-	request := listing.ListInstrumentsRequest{
+	request := client.ListInstrumentsRequest{
 		First: first,
 		After: after,
 	}

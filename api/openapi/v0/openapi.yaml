@@ -41,16 +41,16 @@ components:
     $ref: ./components/schemas.yaml
   responses:
     $ref: ./components/responses.yaml
-  # parameters:
-  #   $ref: ./components/parameters.yaml
-  # examples:
-  #   $ref: ./components/examples.yaml
-  # requestBodies:
-  #   $ref: ./components/requestBodies.yaml
-  # headers:
-  #   $ref: ./components/headers.yaml
-  # securitySchemes:
-  #   $ref: ./components/securitySchemes.yaml
+  parameters:
+    $ref: ./components/parameters.yaml
+  examples:
+    $ref: ./components/examples.yaml
+  requestBodies:
+    $ref: ./components/requestBodies.yaml
+  headers:
+    $ref: ./components/headers.yaml
+  securitySchemes:
+    $ref: ./components/securitySchemes.yaml
   #links:
   #callbacks:
   #pathItems:

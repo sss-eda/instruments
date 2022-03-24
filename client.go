@@ -7,11 +7,6 @@ type Client struct {
 	app Application
 }
 
-// Service TODO
-type Service interface {
-
-}
-
 // NewClient TODO
 func NewClient(
 	clientType ClientType,

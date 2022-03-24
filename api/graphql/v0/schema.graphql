@@ -1,0 +1,69 @@
+type Query {
+    instruments(first: Int, after: String): InstrumentConnection!
+}
+
+interface Connection {
+    edges: [InstrumentEdge]
+    nodes: [InstrumentNode]
+    pageInfo: PageInfo!
+    totalCount: Int!
+}
+
+interface Edge {
+    cursor: String!
+    node: Node
+}
+
+interface Node {
+    id: ID!
+}
+
+type InstrumentConnection implements Connection {
+    edges: [InstrumentEdge]
+    nodes: [Instrument]
+    pageInfo: PageInfo!
+    totalCount: Int!
+}
+
+type InstrumentEdge implements Edge {
+    cursor: String!
+    node: Instrument
+}
+
+type Instrument implements Node {
+  id: ID!
+  commands(first: Int, after: String): CommandConnection
+  events(first: Int, after: String): EventConnection
+}
+
+type CommandConnection implements Connection {
+    edges: [CommandEdge]
+    nodes: [Command]
+    pageInfo: PageInfo!
+    totalCount: Int!
+}
+
+type CommandEdge implements Edge {
+    cursor: String!
+    node: Command
+}
+
+type Command implements Node {
+  id: ID!
+}
+
+type EventConnection implements Connection {
+    edges: [EventEdge]
+    nodes: [Event]
+    pageInfo: PageInfo!
+    totalCount: Int!
+}
+
+type EventEdge implements Edge {
+    cursor: String!
+    node: Event
+}
+
+type Events implements Node {
+  id: ID!
+}
