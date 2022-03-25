@@ -13,13 +13,14 @@ func main() {
 	if !defined {
 		envAPIType = "OpenAPI"
 	}
+
 	var apiType api.Type
 	err := apiType.UnmarshalText([]byte(envAPIType))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	handler, err := api.NewHandler(apiType)
+	handler, err := api.NewHTTPHandler(apiType)
 	if err != nil {
 		log.Fatal(err)
 	}
