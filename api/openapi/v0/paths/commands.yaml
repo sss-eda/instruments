@@ -1,0 +1,5 @@
+get:
+  description: Returns all commands that has ever been sent to the instrument. But also... have ability to upgrade to websocket?
+  
+post:
+  description: Create a new command and send it to this instrument with id.

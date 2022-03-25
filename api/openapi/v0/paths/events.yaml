@@ -1,0 +1,4 @@
+get:
+  description: Returns all events that has ever been sent to the instrument.
+post:
+  description: Publish a new event.

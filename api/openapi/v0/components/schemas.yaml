@@ -1,0 +1,6 @@
+Instrument:
+  $ref: ./schemas/instrument.yaml
+Command:
+  $ref: ./schemas/command.yaml
+Event:
+  $ref: ./schemas/event.yaml

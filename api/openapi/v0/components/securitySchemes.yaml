@@ -1,0 +1,12 @@
+api_key:
+  type: apiKey
+  name: api_key
+  in: header
+auth:
+  type: oauth2
+  flows:
+    implicit:
+      authorizationUrl: https://api.sansa.dev/oauth
+      scopes:
+        write:instruments: modify instruments in your account
+        read:instruments: view instruments in your account

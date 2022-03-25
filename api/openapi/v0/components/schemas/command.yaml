@@ -1,0 +1,14 @@
+# schemas/command.yaml
+type: object
+required:
+- commandType
+properties:
+  id:
+    type: string
+  commandType:
+    type: object
+    properties:
+      name:
+        type:
+          string
+    

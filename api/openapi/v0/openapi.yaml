@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: Instruments API
+  #summary: For managing, controlling and monitoring instruments.
+  description: This API gives clients access to an instruments resource, with the ability to send commands, subscribe to events and perform queries.
+  termsOfService: https://sansa.dev/terms
+  contact:
+    name: API Support
+    url: https://sansa.dev/support
+    email: support@sansa.dev
+  license:
+    name: MIT License
+    #identifier: MIT
+  version: v0.0.0
+#jsonSchemaDialect: https://spec.openapis.org/oas/3.1/dialect/base
+servers:
+  - url: "https://api.sansa.dev/{version}"
+    description: "Production API Server"
+    variables:
+      version:
+        description: "Major Version of API"
+        enum:
+          - v0
+          - v1
+        default: v1
+paths:
+  /instruments:
+    $ref: ./paths/instruments.yaml
+  /instruments/{id}:
+    $ref: ./paths/instrument.yaml
+  /instruments/{id}/commands:
+    $ref: ./paths/commands.yaml
+  /instruments/{id}/commands/{id}:
+    $ref: ./paths/command.yaml
+  /instruments/{id}/events:
+    $ref: ./paths/events.yaml
+  /instruments/{id}/events/{id}:
+    $ref: ./paths/event.yaml
+components:
+  schemas:
+    $ref: ./components/schemas.yaml
+  responses:
+    $ref: ./components/responses.yaml
+  parameters:
+    $ref: ./components/parameters.yaml
+  examples:
+    $ref: ./components/examples.yaml
+  requestBodies:
+    $ref: ./components/requestBodies.yaml
+  headers:
+    $ref: ./components/headers.yaml
+  securitySchemes:
+    $ref: ./components/securitySchemes.yaml
+  #links:
+  #callbacks:
+  #pathItems:
+#security:
+#tags:
+#externalDocs:
