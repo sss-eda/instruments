@@ -1,3 +1,3 @@
 # instruments
 
-![](https://tokei.rs/b1/github/project-jedi/jcl)
+![](https://tokei.rs/b1/github/sss-eda/instruments)
