@@ -36,14 +36,14 @@ type Instrument implements Node {
   events(first: Int, after: String): EventConnection
 }
 
-type CommandConnection implements Connection {
-    edges: [CommandEdge]
+type InstrumentCommandConnection implements Connection {
+    edges: [InstrumentCommandEdge]
     nodes: [Command]
     pageInfo: PageInfo!
     totalCount: Int!
 }
 
-type CommandEdge implements Edge {
+type InstrumentCommandEdge implements Edge {
     cursor: String!
     node: Command
 }
