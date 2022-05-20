@@ -2,28 +2,38 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/sss-eda/instruments/internal/application/api"
 )
 
 func main() {
-	envAPIType, defined := os.LookupEnv("INSTRUMENTS_API_TYPE")
+	envServerType, defined := os.LookupEnv("INSTRUMENTS_API_SERVER_TYPE")
 	if !defined {
-		envAPIType = "OpenAPI"
+		envServerType = "OpenAPI"
 	}
 
-	var apiType api.Type
-	err := apiType.UnmarshalText([]byte(envAPIType))
+	var serverType api.ServerType
+	err := serverType.UnmarshalText([]byte(envServerType))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	handler, err := api.NewHTTPHandler(apiType)
+	envGatewayType, defined := os.LookupEnv("INSTRUMENTS_API_GATEWAY_TYPE")
+	if !defined {
+		envGatewayType = "Memory"
+	}
+
+	var gatewayType api.GatewayType
+	err = gatewayType.UnmarshalText([]byte(envGatewayType))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	log.Fatal(http.ListenAndServe(":8080", handler))
+	app, err := api.NewApplication(serverType, gatewayType)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Fatal(app.Run())
 }

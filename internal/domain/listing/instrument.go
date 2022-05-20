@@ -2,13 +2,23 @@ package listing
 
 // Instrument TODO
 type Instrument struct {
-	id InstrumentID
+	ID       uint64
+	Name     string
+	Commands []*Command
+	Events   []*Event
 }
 
-// ID TODO
-func (instrument *Instrument) ID() InstrumentID {
-	return instrument.id
+// InstrumentRepository TODO
+type InstrumentRepository interface {
+	GetInstruments(first uint64, after uint64) ([]*Instrument, error)
 }
 
-// InstrumentID TODO
-type InstrumentID string
+func ListInstruments(
+	repository InstrumentRepository,
+) ListInstrumentsUseCase {
+	return func(first uint64, after uint64) ([]*Instrument, error) {
+		return repository.GetInstruments(first, after)
+	}
+}
+
+type ListInstrumentsUseCase func(uint64, uint64) ([]*Instrument, error)

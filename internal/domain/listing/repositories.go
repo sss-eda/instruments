@@ -1,23 +1,17 @@
 package listing
 
-import (
-	"context"
+// // InstrumentRepository TODO
+// type InstrumentRepository interface {
+// 	GetInstruments(context.Context, paging.ConnectionInput) ([]*Instrument, error)
+// 	// GetByID(context.Context, InstrumentID) (*Instrument, error)
+// }
 
-	"github.com/sss-eda/instruments/internal/domain/paging"
-)
+// // CommandRepository TODO
+// type CommandRepository interface {
+// 	GetCommands(context.Context, paging.ConnectionInput) ([]*Command, error)
+// }
 
-// InstrumentRepository TODO
-type InstrumentRepository interface {
-	GetInstruments(context.Context, paging.ConnectionInput) ([]*Instrument, error)
-	// GetByID(context.Context, InstrumentID) (*Instrument, error)
-}
-
-// CommandRepository TODO
-type CommandRepository interface {
-	GetCommands(context.Context, paging.ConnectionInput) ([]*Command, error)
-}
-
-// EventRepository TODO
-type EventRepository interface {
-	GetEvents(context.Context, paging.ConnectionInput) ([]*Event, error)
-}
+// // EventRepository TODO
+// type EventRepository interface {
+// 	GetEvents(context.Context, paging.ConnectionInput) ([]*Event, error)
+// }
